@@ -3,8 +3,8 @@
     <div class="row">
         <div class="panel panel-primary filterable">
             <div class="panel-heading">
-                <button class="btn " data-toggle="modal" data-target="#myModal">Add</button>
-
+                <button class="btn " data-toggle="modal" data-target="#myModal1">Add</button>
+                <button class="btn " >Generate BarCode</button>
                 <button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span>
                     Filter</button>
             </div>
@@ -19,30 +19,28 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
+                <?php
+                        include 'db.php';
+                        $getbooks = mysqli_query($con,"SELECT * FROM `stddataa` where 1");
+                        $i = 1;
+                        while($row = mysqli_fetch_assoc($getbooks)){
+                    ?>
+                        <tr>
+                            <td><?php echo $i++?></td>
+                            <td><?php echo $row['stdid'] ?></td>
+                            <td><?php echo $row['stdname'] ?></td>
+                            <td><?php echo $row['group'] ?></td>
+                            <td><?php echo $row['Books'] ?></td>
+                        </tr>
+                    <?php
+                        }
+                    ?>
                 </tbody>
             </table>
         </div>
     </div>
 </div>
-<div class="modal" id="myModal">
+<div class="modal" id="myModal1">
     <div class="modal-dialog">
         <div class="modal-content">
 
@@ -54,14 +52,14 @@
 
             <!-- Modal body -->
             <div class="modal-body">
-                <form method="post" action="insertbooks.php">
+                <form method="post" action="insertstd.php">
                     <div class="form-group">
                         <label for="Sname">Student Name</label>
-                        <input type="text" name="sname" class="form-control" placeholder="Enter Book Name" id="Sname" >
+                        <input type="text" name="sname" class="form-control" placeholder="Enter Student Name" id="Sname" >
                     </div>
                     <div class="form-group">
                         <label for="rnum">Roll Number</label>
-                        <input type="text" name="rnum" class="form-control" placeholder="Enter Author Name" id="rnum">
+                        <input type="text" name="rnum" class="form-control" placeholder="Enter Student iD" id="rnum">
                     </div>
                     <div class="form-group">
                         <label for="dept">Department</label>

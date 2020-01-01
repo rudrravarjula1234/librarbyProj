@@ -21,24 +21,24 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
+                    <?php
+                        include 'db.php';
+                        $getbooks = mysqli_query($con,"SELECT * FROM `bookdata` where 1");
+                        $i = 1;
+                        while($row = mysqli_fetch_assoc($getbooks)){
+                    ?>
+                        <tr>
+                            <td><?php echo $i++?></td>
+                            <td><?php echo $row['BookId'] ?></td>
+                            <td><?php echo $row['BookName'] ?></td>
+                            <td><?php echo $row['Author'] ?></td>
+                            <td></td>
+                            <td></td>
+                            <td><button>Add</button></td>
+                        </tr>
+                    <?php
+                        }
+                    ?>
                 </tbody>
             </table>
         </div>

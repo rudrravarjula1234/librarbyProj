@@ -51,11 +51,11 @@ else{
             <div id="dbgrid"></div>
         </div>
         <div id="addstd" class="container tab-pane fade">
-            <button class="btn">Generate Bar Code</button>
+            
             <div id="stdgrid"></div>
         </div>
         <div id="addbook" class="container tab-pane fade">
-            <button class="btn">Generate Bar Code</button>
+            
             <div id="bookgrid"></div>
         </div>
         
