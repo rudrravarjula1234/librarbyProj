@@ -1,4 +1,10 @@
+<style>
 
+#copies{
+    display:flex;
+    flex-direction: row;
+}
+</style>
 <div class="container">
     <div class="row">
         <div class="panel panel-primary filterable">
@@ -23,7 +29,7 @@
                 <tbody>
                     <?php
                         include 'db.php';
-                        $getbooks = mysqli_query($con,"SELECT * FROM `bookdata` where 1");
+                        $getbooks = mysqli_query($con,"SELECT *,(SELECT COUNT(BookGuid) from `booksdata` where BookName = `bookdata`.`BookId`) AS total,(SELECT COUNT(BookGuid) from `booksdata` where BookName = `bookdata`.`BookId` && STATUS = false) AS available from `bookdata` where 1");
                         $i = 1;
                         while($row = mysqli_fetch_assoc($getbooks)){
                     ?>
@@ -32,9 +38,13 @@
                             <td><?php echo $row['BookId'] ?></td>
                             <td><?php echo $row['BookName'] ?></td>
                             <td><?php echo $row['Author'] ?></td>
-                            <td></td>
-                            <td></td>
-                            <td><button>Add</button></td>
+                            <td><?php echo $row['total'] ?></td>
+                            <td><?php echo $row['available'] ?></td>
+                            <td><form method="post" id="copies" >
+                                <input type="hidden" value="<?php echo $row['BookId'] ?>">
+                                <input type="number" id="copyy" class="form-control" name="copy">
+                                <input type="submit" value="Add" id="addd" name="add" class="btn " style="margin-left:5px" disabled>  
+                            </form></td>
                         </tr>
                     <?php
                         }
@@ -94,6 +104,9 @@
 </div>
 <script type="text/javascript">
 $(document).ready(function() {
+    $('#copyy').on('input', function() {
+        $('#').text($('#alice').val());
+    });
     $('.filterable .btn-filter').click(function() {
 
         var $panel = $(this).parents('.filterable'),
