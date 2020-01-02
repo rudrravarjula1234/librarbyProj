@@ -2,9 +2,11 @@
 <div class="container">
     <div class="row">
         <div class="panel panel-primary filterable">
+            <form method="post" action="barCodeGen.php" target="_blank">
             <div class="panel-heading">
+            
                 <button class="btn " data-toggle="modal" data-target="#myModal1">Add</button>
-                <button class="btn " >Generate BarCode</button>
+                <button class="btn " type="submit" >Generate BarCode</button>
                 <button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span>
                     Filter</button>
             </div>
@@ -26,9 +28,9 @@
                         while($row = mysqli_fetch_assoc($getbooks)){
                     ?>
                         <tr>
-                            <td><?php echo $i++?></td>
+                            <td><input type="checkbox" name="barcodes[]" value="<?php echo $row['stdid'] ?>" /></td>
                             <td><?php echo $row['stdid'] ?></td>
-                            <td><?php echo $row['stdname'] ?></td>
+                            <td><input type="hidden" value="<?php echo $row['stdname'] ?>" name="var[]"><?php echo $row['stdname'] ?></td>
                             <td><?php echo $row['group'] ?></td>
                             <td><?php echo $row['Books'] ?></td>
                         </tr>
@@ -37,6 +39,7 @@
                     ?>
                 </tbody>
             </table>
+            </form>
         </div>
     </div>
 </div>
