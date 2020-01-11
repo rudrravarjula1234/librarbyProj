@@ -5,10 +5,10 @@
             <form method="post" action="barCodeGen.php" target="_blank">
             <div class="panel-heading">
             
-                <button class="btn " data-toggle="modal" data-target="#myModal1">Add</button>
-                <button class="btn " type="submit" >Generate BarCode</button>
-                <button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span>
-                    Filter</button>
+                <a class="btn btn-default" href="#" data-toggle="modal" data-target="#myModal1">Add</a>
+                <input class="btn" type="submit" value="Generate BarCode" />
+                <a class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span>
+                    Filter</a>
             </div>
             <table class="table">
                 <thead>

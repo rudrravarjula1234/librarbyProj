@@ -9,10 +9,10 @@
     <div class="row">
         <div class="panel panel-primary filterable">
             <div class="panel-heading">
-                <button class="btn " data-toggle="modal" data-target="#myModal">Add</button>
+                <a class="btn " data-toggle="modal" data-target="#myModal">Add</a>
 
-                <button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span>
-                    Filter</button>
+                <a class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span>
+                    Filter</a>
             </div>
             <table class="table">
                 <thead>
@@ -40,10 +40,11 @@
                             <td><?php echo $row['Author'] ?></td>
                             <td><?php echo $row['total'] ?></td>
                             <td><?php echo $row['available'] ?></td>
-                            <td><form method="post" id="copies" >
-                                <input type="hidden" value="<?php echo $row['BookId'] ?>">
-                                <input type="number" id="copyy" class="form-control" name="copy">
-                                <input type="submit" value="Add" id="addd" name="add" class="btn " style="margin-left:5px" disabled>  
+                            <td><form method="post" id="copies" action="addcopies.php" target="_blank">
+                                <input type="hidden" name="bid" value="<?php echo $row['BookId'] ?>">
+                                <input type="hidden" name="bname" value="<?php echo $row['BookName'] ?>" >
+                                <input type="number" class="form-control copyy" name="copy">
+                                <input type="submit" value="Add" name="add" class="btn addd" style="margin-left:5px" disabled>  
                             </form></td>
                         </tr>
                     <?php
@@ -104,8 +105,11 @@
 </div>
 <script type="text/javascript">
 $(document).ready(function() {
-    $('#copyy').on('input', function() {
-        $('#').text($('#alice').val());
+    $('.copyy').on('input', function() {
+        $($(this).parent().context.nextElementSibling).removeAttr("disabled");
+        var a = console.log($(this).parent().context.nextElementSibling);
+        console.log();
+        console.log(($('#copyy').val()));
     });
     $('.filterable .btn-filter').click(function() {
 

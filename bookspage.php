@@ -2,11 +2,11 @@
 <div class="container">
     <div class="row">
         <div class="panel panel-primary filterable">
+            <form method="post" action="barCodeGen.php" target="_blank">
             <div class="panel-heading">
-                <button class="btn " data-toggle="modal" data-target="#myModal">Generate BarCode</button>
-
-                <button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span>
-                    Filter</button>
+                <input class="btn" type="submit" value="Generate BarCode" />
+                <a class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span>
+                    Filter</a>
             </div>
             <table class="table">
                 <thead>
@@ -28,12 +28,12 @@
                         while($row = mysqli_fetch_assoc($getbooks)){
                     ?>
                         <tr>
-                            <td><?php echo $i++?></td>
+                            <td><input type="checkbox" name="barcodes[]" value="<?php echo $row['BookGuid'] ?>" /></td>
                             <td><?php echo $row['BookGuid'] ?></td>
                             <td><?php echo $row['BookId'] ?></td>
-                            <td><?php echo $row['BookName'] ?></td>
+                            <td><input type="hidden" value="<?php echo $row['BookName'] ?>" name="var[]"><?php echo $row['BookName'] ?></td>
                             <td><?php echo $row['Author'] ?></td>
-                            <td></td>
+                            <td><?php echo $row['status']?"Not Available":"Available" ?></td>
                         </tr>
                     <?php
                         }
