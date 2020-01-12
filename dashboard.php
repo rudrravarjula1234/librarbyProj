@@ -47,6 +47,7 @@ else{
     <!-- Modal body -->
 
     <div class="tab-content">
+        <a class="btn" href="logout.php">Logout</a>
         <div id="dashboard" class="container tab-pane active">
             <div id="dbgrid"></div>
         </div>
