@@ -16,11 +16,20 @@ span { font-size: 13px;}
 <body onload="window.print();">
 	<div style="margin-left: 5%">
 		<?php
-		include 'barCodelib.php';
+        include 'barCodelib.php';
+        include "db.php";
 		$a = $_POST['barcodes'];
         $c = $_POST['var'];
-        foreach ($a as $key => $value) {
-            echo "<p class='inline'><span ><b>Item: $c[$key]</b></span>".bar128(stripcslashes($value))."</p>&nbsp&nbsp&nbsp&nbsp";
+        if(isset($_POST['gen'])){
+            foreach ($a as $key => $value) {
+                echo "<p class='inline'><span ><b>Item: $c[$key]</b></span>".bar128(stripcslashes($value))."</p>&nbsp&nbsp&nbsp&nbsp";
+            }
+        }
+        if(isset($_POST['delete'])){
+            foreach($a as $key => $value){
+                mysqli_query($con,"DELETE FROM `stddataa` WHERE `stdid` = '$value'");
+            }
+            echo "<script>window.close()</script>";
         }
 		?>
 	</div>

@@ -6,7 +6,8 @@
             <div class="panel-heading">
             
                 <a class="btn btn-default" href="#" data-toggle="modal" data-target="#myModal1">Add</a>
-                <input class="btn" type="submit" value="Generate BarCode" />
+                <input class="btn" type="submit" value="Generate BarCode" name="gen"/>
+                <input class="btn" type="submit" value="Delete" name="delete"/>
                 <a class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span>
                     Filter</a>
             </div>
@@ -63,6 +64,13 @@
                     <div class="form-group">
                         <label for="rnum">Roll Number</label>
                         <input type="text" name="rnum" class="form-control" placeholder="Enter Student iD" id="rnum">
+                    </div>
+                    <div class="form-group">
+                        <lable for="stype">Type</lable>
+                        <select class="form-control" name="type">
+                            <option value=1>Student</option>
+                            <option value=2>Faculty</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="dept">Department</label>

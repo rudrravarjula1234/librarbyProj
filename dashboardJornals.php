@@ -9,7 +9,7 @@
     <div class="row">
         <div class="panel panel-primary filterable">
             <div class="panel-heading">
-                <a class="btn " data-toggle="modal" data-target="#myModal">Add Books</a>
+                <a class="btn " data-toggle="modal" data-target="#myModaljor">Add Journals</a>
                 
                 <a class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span>
                     Filter</a>
@@ -61,13 +61,13 @@
         </div>
     </div>
 </div>
-<div class="modal" id="myModal">
+<div class="modal" id="myModaljor">
     <div class="modal-dialog">
         <div class="modal-content">
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Add Books</h4>
+                <h4 class="modal-title">Add Journals</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
 
