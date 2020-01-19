@@ -1,16 +1,15 @@
 <style>
-
-#copies{
-    display:flex;
-    flex-direction: row;
-}
+    #copies {
+        display: flex;
+        flex-direction: row;
+    }
 </style>
 <div class="container">
     <div class="row">
         <div class="panel panel-primary filterable">
             <div class="panel-heading">
                 <a class="btn " data-toggle="modal" data-target="#myModaljor">Add Journals</a>
-                
+
                 <a class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span>
                     Filter</a>
             </div>
@@ -18,7 +17,7 @@
                 <thead>
                     <tr class="filters">
                         <th><input type="text" class="form-control" placeholder="#" disabled></th>
-                        <th><input type="text" class="form-control" placeholder="Book ID" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Journal ID" disabled></th>
                         <th><input type="text" class="form-control" placeholder="Book Name" disabled></th>
                         <th><input type="text" class="form-control" placeholder="Book Author" disabled></th>
                         <th><input type="text" class="form-control" placeholder="No of copies" disabled></th>
@@ -29,10 +28,10 @@
                 </thead>
                 <tbody>
                     <?php
-                        include 'db.php';
-                        $getbooks = mysqli_query($con,"SELECT *,(SELECT COUNT(BookGuid) from `booksdata` where BookName = `bookdata`.`BookId`) AS total,(SELECT COUNT(BookGuid) from `booksdata` where BookName = `bookdata`.`BookId` && STATUS = false) AS available from `bookdata` where 1");
-                        $i = 1;
-                        while($row = mysqli_fetch_assoc($getbooks)){
+                    include 'db.php';
+                    $getbooks = mysqli_query($con, "SELECT *,(SELECT COUNT(BookGuid) from `booksdata` where BookName = `bookdata`.`BookId`) AS total,(SELECT COUNT(BookGuid) from `booksdata` where BookName = `bookdata`.`BookId` && STATUS = false) AS available from `bookdata` where 1");
+                    $i = 1;
+                    while ($row = mysqli_fetch_assoc($getbooks)) {
                     ?>
                         <tr>
                             <td><?php echo $i++; ?></td>
@@ -41,23 +40,27 @@
                             <td><?php echo $row['Author'] ?></td>
                             <td><?php echo $row['total'] ?></td>
                             <td><?php echo $row['available'] ?></td>
-                            <td><form method="post" id="copies" action="addcopies.php" target="_blank">
-                                <input type="hidden" name="bid" value="<?php echo $row['BookId'] ?>">
-                                <input type="hidden" name="bname" value="<?php echo $row['BookName'] ?>" >
-                                <input type="number" class="form-control copyy" name="copy">
-                                <input type="submit" value="Add" name="add" class="btn addd" style="margin-left:5px" disabled>  
-                            </form></td>
-                            <td><form method="post" action="deletebook.php">
-                                <input type="hidden" value="<?php echo $row['BookId'];  ?>" name="books"/>
-                                <input class="btn" type="submit" value="Delete" />
-                            </form></td>
+                            <td>
+                                <form method="post" id="copies" action="addcopies.php" target="_blank">
+                                    <input type="hidden" name="bid" value="<?php echo $row['BookId'] ?>">
+                                    <input type="hidden" name="bname" value="<?php echo $row['BookName'] ?>">
+                                    <input type="number" class="form-control copyy" name="copy">
+                                    <input type="submit" value="Add" name="add" class="btn addd" style="margin-left:5px" disabled>
+                                </form>
+                            </td>
+                            <td>
+                                <form method="post" action="deletebook.php">
+                                    <input type="hidden" value="<?php echo $row['BookId'];  ?>" name="books" />
+                                    <input class="btn" type="submit" value="Delete" />
+                                </form>
+                            </td>
                         </tr>
                     <?php
-                        }
+                    }
                     ?>
                 </tbody>
             </table>
-            
+
         </div>
     </div>
 </div>
@@ -74,29 +77,55 @@
             <!-- Modal body -->
             <div class="modal-body">
                 <form method="post" action="insertbooks.php">
+                    <!-- <div class="form-group">
+                        <label for="Bname">S.No</label>
+                        <input type="text" name="bname" class="form-control" placeholder="Enter S.No of the Book" id="Bname">
+                    </div> -->
                     <div class="form-group">
-                        <label for="Bname">BookName</label>
-                        <input type="text" name="bname" class="form-control" placeholder="Enter Book Name" id="Bname" >
+                        <label for="Author">Date of Pubilished</label>
+                        <input type="text" name="author" class="form-control" placeholder="Enter Date of Pubilished" id="Author">
                     </div>
                     <div class="form-group">
-                        <label for="Author">Author</label>
-                        <input type="text" name="author" class="form-control" placeholder="Enter Author Name" id="Author">
+                        <label for="sub">Month of Pubilished</label>
+                        <input type="text" name="subb" class="form-control" placeholder="Enter Month of Pubilished" id="sub">
                     </div>
                     <div class="form-group">
-                        <label for="sub">Subject</label>
-                        <input type="text" name="subb" class="form-control" placeholder="Enter Subject" id="sub">
+                        <label for="Bname">Year of Pubilished</label>
+                        <input type="text" name="bname" class="form-control" placeholder="Enter Year of Pubilished" id="Bname">
                     </div>
                     <div class="form-group">
-                        <label for="dept">Department</label>
-                        <select class="form-control" name="dept" id="dept">
-                            <option>ECE</option>
-                            <option>CSE</option>
-                            <option>IT</option>
-                            <option>EEE</option>
-                            <option>MECH</option>
-                        </select>
+                        <label for="Author">Volume</label>
+                        <input type="text" name="author" class="form-control" placeholder="Enter Volume" id="Author">
                     </div>
-                    
+                    <div class="form-group">
+                        <label for="sub">Number</label>
+                        <input type="text" name="subb" class="form-control" placeholder="Enter >Number" id="sub">
+                    </div>
+                    <div class="form-group">
+                        <label for="Bname">Date of Received</label>
+                        <input type="text" name="bname" class="form-control" placeholder="Enter Date of Received" id="Bname">
+                    </div>
+                    <div class="form-group">
+                        <label for="Author">Order Number & Date</label>
+                        <input type="text" name="author" class="form-control" placeholder="Enter Order Number & Date" id="Author">
+                    </div>
+                    <div class="form-group">
+                        <label for="sub">DD Number & Date</label>
+                        <input type="text" name="subb" class="form-control" placeholder="Enter DD Number & Date" id="sub">
+                    </div>
+                    <div class="form-group">
+                        <label for="sub">Amount</label>
+                        <input type="text" name="subb" class="form-control" placeholder="Enter Amount" id="sub">
+                    </div>
+                    <div class="form-group">
+                        <label for="sub">Librarians's Initials</label>
+                        <input type="text" name="subb" class="form-control" placeholder="Enter Librarians's Initials" id="sub">
+                    </div>
+                    <div class="form-group">
+                        <label for="sub">Remarks</label>
+                        <input type="text" name="subb" class="form-control" placeholder="Enter Remarks" id="sub">
+                    </div>
+
                     <button type="submit" class="btn btn-primary" name="submit">Submit</button>
                 </form>
             </div>
@@ -110,54 +139,54 @@
     </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function() {
-    $('.copyy').on('input', function() {
-        $($(this).parent().context.nextElementSibling).removeAttr("disabled");
-        var a = console.log($(this).parent().context.nextElementSibling);
-        console.log();
-        console.log(($('#copyy').val()));
-    });
-    $('.filterable .btn-filter').click(function() {
-
-        var $panel = $(this).parents('.filterable'),
-            $filters = $panel.find('.filters input'),
-            $tbody = $panel.find('.table tbody');
-        if ($filters.prop('disabled') == true) {
-            $filters.prop('disabled', false);
-            $filters.first().focus();
-        } else {
-            $filters.val('').prop('disabled', true);
-            $tbody.find('.no-result').remove();
-            $tbody.find('tr').show();
-        }
-    });
-
-    $('.filterable .filters input').keyup(function(e) {
-        /* Ignore tab key */
-        var code = e.keyCode || e.which;
-        if (code == '9') return;
-        /* Useful DOM data and selectors */
-        var $input = $(this),
-            inputContent = $input.val().toLowerCase(),
-            $panel = $input.parents('.filterable'),
-            column = $panel.find('.filters th').index($input.parents('th')),
-            $table = $panel.find('.table'),
-            $rows = $table.find('tbody tr');
-        /* Dirtiest filter function ever ;) */
-        var $filteredRows = $rows.filter(function() {
-            var value = $(this).find('td').eq(column).text().toLowerCase();
-            return value.indexOf(inputContent) === -1;
+    $(document).ready(function() {
+        $('.copyy').on('input', function() {
+            $($(this).parent().context.nextElementSibling).removeAttr("disabled");
+            var a = console.log($(this).parent().context.nextElementSibling);
+            console.log();
+            console.log(($('#copyy').val()));
         });
-        /* Clean previous no-result if exist */
-        $table.find('tbody .no-result').remove();
-        /* Show all rows, hide filtered ones (never do that outside of a demo ! xD) */
-        $rows.show();
-        $filteredRows.hide();
-        /* Prepend no-result row if all rows are filtered */
-        if ($filteredRows.length === $rows.length) {
-            $table.find('tbody').prepend($('<tr class="no-result text-center"><td colspan="' + $table
-                .find('.filters th').length + '">No result found</td></tr>'));
-        }
+        $('.filterable .btn-filter').click(function() {
+
+            var $panel = $(this).parents('.filterable'),
+                $filters = $panel.find('.filters input'),
+                $tbody = $panel.find('.table tbody');
+            if ($filters.prop('disabled') == true) {
+                $filters.prop('disabled', false);
+                $filters.first().focus();
+            } else {
+                $filters.val('').prop('disabled', true);
+                $tbody.find('.no-result').remove();
+                $tbody.find('tr').show();
+            }
+        });
+
+        $('.filterable .filters input').keyup(function(e) {
+            /* Ignore tab key */
+            var code = e.keyCode || e.which;
+            if (code == '9') return;
+            /* Useful DOM data and selectors */
+            var $input = $(this),
+                inputContent = $input.val().toLowerCase(),
+                $panel = $input.parents('.filterable'),
+                column = $panel.find('.filters th').index($input.parents('th')),
+                $table = $panel.find('.table'),
+                $rows = $table.find('tbody tr');
+            /* Dirtiest filter function ever ;) */
+            var $filteredRows = $rows.filter(function() {
+                var value = $(this).find('td').eq(column).text().toLowerCase();
+                return value.indexOf(inputContent) === -1;
+            });
+            /* Clean previous no-result if exist */
+            $table.find('tbody .no-result').remove();
+            /* Show all rows, hide filtered ones (never do that outside of a demo ! xD) */
+            $rows.show();
+            $filteredRows.hide();
+            /* Prepend no-result row if all rows are filtered */
+            if ($filteredRows.length === $rows.length) {
+                $table.find('tbody').prepend($('<tr class="no-result text-center"><td colspan="' + $table
+                    .find('.filters th').length + '">No result found</td></tr>'));
+            }
+        });
     });
-});
 </script>
