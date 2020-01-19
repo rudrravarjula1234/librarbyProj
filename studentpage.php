@@ -13,11 +13,12 @@
                 <table class="table">
                     <thead>
                         <tr class="filters">
-                            <th><input type="text" class="form-control" placeholder="#" disabled></th>
+                            <th><input type="text" class="form-control" placeholder="Check Box" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Id" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Name" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Group" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Books Taken" disabled></th>
+                            <th><input type="text" class="form-control" placeholder="Sutdent/Faculty" disabled></th>
                         </tr>
                     </thead>
                     <tbody>

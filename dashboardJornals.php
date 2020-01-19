@@ -10,21 +10,21 @@
             <div class="panel-heading">
                 <a class="btn " data-toggle="modal" data-target="#myModaljor">Add Journals</a>
 
-                <a class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span>
-                    Filter</a>
+                <!-- <a class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span>
+                    Filter</a> -->
             </div>
             <table class="table">
                 <thead>
-                    <tr class="filters">
-                        <th><input type="text" class="form-control" placeholder="#" disabled></th>
-                        <th><input type="text" class="form-control" placeholder="Journal ID" disabled></th>
-                        <th><input type="text" class="form-control" placeholder="Book Name" disabled></th>
-                        <th><input type="text" class="form-control" placeholder="Book Author" disabled></th>
-                        <th><input type="text" class="form-control" placeholder="No of copies" disabled></th>
-                        <th><input type="text" class="form-control" placeholder="Available copies" disabled></th>
-                        <th><input type="text" class="form-control" placeholder="Add copies" disabled /></th>
-                        <th>Delete</td>
-                    </tr>
+                    <!-- <tr class="filters"> -->
+                    <th><input type="text" class="form-control" placeholder="S.No" disabled></th>
+                    <th><input type="text" class="form-control" placeholder="Journal ID" disabled></th>
+                    <th><input type="text" class="form-control" placeholder="Book Name" disabled></th>
+                    <th><input type="text" class="form-control" placeholder="Book Author" disabled></th>
+                    <th><input type="text" class="form-control" placeholder="No of copies" disabled></th>
+                    <th><input type="text" class="form-control" placeholder="Available copies" disabled></th>
+                    <th><input type="text" class="form-control" placeholder="Add copies" disabled /></th>
+                    <th>Delete</td>
+                        <!-- </tr> -->
                 </thead>
                 <tbody>
                     <?php

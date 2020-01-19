@@ -11,7 +11,7 @@
                 <table class="table">
                     <thead>
                         <tr class="filters">
-                            <th><input type="text" class="form-control" placeholder="#" disabled></th>
+                            <th><input type="text" class="form-control" placeholder="Check Box" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Date" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Acession Number" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Call Number" disabled></th>

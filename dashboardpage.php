@@ -16,10 +16,13 @@
             <table class="table">
                 <thead>
                     <tr class="filters">
-                        <th><input type="text" class="form-control" placeholder="#" disabled></th>
-                        <th><input type="text" class="form-control" placeholder="Book ID" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="S.No" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Accession Number" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Call Number" disabled></th>
                         <th><input type="text" class="form-control" placeholder="Book Name" disabled></th>
                         <th><input type="text" class="form-control" placeholder="Book Author" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Book ID" disabled></th>
+
                         <th><input type="text" class="form-control" placeholder="No of copies" disabled></th>
                         <th><input type="text" class="form-control" placeholder="Available copies" disabled></th>
                         <th><input type="text" class="form-control" placeholder="Add copies" disabled /></th>
@@ -35,9 +38,9 @@
                     ?>
                         <tr>
                             <td><?php echo $i++; ?></td>
-                            <td><?php echo $row['BookId'] ?></td>
                             <td><?php echo $row['BookName'] ?></td>
                             <td><?php echo $row['Author'] ?></td>
+                            <td><?php echo $row['BookId'] ?></td>
                             <td><?php echo $row['total'] ?></td>
                             <td><?php echo $row['available'] ?></td>
                             <td>

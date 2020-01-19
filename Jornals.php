@@ -5,32 +5,32 @@
                 <div class="panel-heading">
                     <input class="btn" type="submit" value="Generate BarCode" name="gen" />
 
-                    <a class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span>
-                        Filter</a>
+                    <!-- <a class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span>
+                        Filter</a> -->
                 </div>
                 <table class="table">
                     <thead>
-                        <tr class="filters">
-                            <th><input type="text" class="form-control" placeholder="#" disabled></th>
-                            <th><input type="text" class="form-control" placeholder="S.No" disabled></th>
-                            <th><input type="text" class="form-control" placeholder="Date" disabled></th>
-                            <th><input type="text" class="form-control" placeholder="Month" disabled></th>
-                            <th><input type="text" class="form-control" placeholder="Year" disabled></th>
-                            <th><input type="text" class="form-control" placeholder="Volume" disabled></th>
-                            <th><input type="text" class="form-control" placeholder="Number" disabled></th>
-                            <th><input type="text" class="form-control" placeholder="Date of Receive" disabled></th>
-                            <th><input type="text" class="form-control" placeholder="Order Number & Date" disabled></th>
-                            <th><input type="text" class="form-control" placeholder="DD Number & Date" disabled></th>
-                            <th><input type="text" class="form-control" placeholder="Amount" disabled></th>
-                            <th><input type="text" class="form-control" placeholder="Librarian's Initials" disabled></th>
-                            <th><input type="text" class="form-control" placeholder="Status" disabled></th>
+                        <!-- <tr class="filters"> -->
+                        <th><input type="text" class="form-control" placeholder="Check Box" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="S.No" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Date" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Month" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Year" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Volume" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Number" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Date of Receive" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Order Number & Date" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="DD Number & Date" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Amount" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Librarian's Initials" disabled></th>
+                        <th><input type="text" class="form-control" placeholder="Status" disabled></th>
 
-                            <!-- <th><input type="text" class="form-control" placeholder="Copy ID" disabled></th>
+                        <!-- <th><input type="text" class="form-control" placeholder="Copy ID" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Book Id" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Book Name" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Author" disabled></th>
                             <th><input type="text" class="form-control" placeholder="status" disabled></th> -->
-                        </tr>
+                        <!-- </tr> -->
                     </thead>
                     <tbody>
                         <?php
