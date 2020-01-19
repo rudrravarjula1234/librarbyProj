@@ -31,6 +31,12 @@ span { font-size: 13px;}
             }
             echo "<script>window.close()</script>";
         }
+        if(isset($_POST['remove'])){
+            foreach($a as $key => $value){
+                mysqli_query($con,"DELETE FROM `booksdata` WHERE `BookGuid` = '$value'");
+            }
+            echo "<script>window.close()</script>";
+        }
 		?>
 	</div>
 </body>

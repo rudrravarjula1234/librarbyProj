@@ -4,6 +4,7 @@
             <form method="post" action="barCodeGen.php" target="_blank">
                 <div class="panel-heading">
                     <input class="btn" type="submit" value="Generate BarCode" name="gen" />
+                    <input class="btn" type="submit" value="Delete" name="remove" />
 
                     <a class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span>
                         Filter</a>
@@ -39,16 +40,27 @@
                         <?php
                         include 'db.php';
                         $getbooks = mysqli_query($con, "SELECT * FROM `booksdata` AS t1 JOIN `bookdata` AS t2 ON t1.BookName = t2.BookId
-                        ");
+                        where t2.type = 1");
                         $i = 1;
                         while ($row = mysqli_fetch_assoc($getbooks)) {
+                            $bbid= $row['BookId'];
+                        $adddata = mysqli_query($con,"SELECT * from `booksaddinfo` where BookId = '$bbid'");
+                        $row1 = mysqli_fetch_array($adddata,MYSQLI_ASSOC);
                         ?>
                             <tr>
                                 <td><input type="checkbox" name="barcodes[]" value="<?php echo $row['BookGuid'] ?>" /></td>
-                                <td><?php echo $row['BookGuid'] ?></td>
-                                <td><?php echo $row['BookId'] ?></td>
+                                <td><?php echo $row1['date'] ?></td>
+                                <td><?php echo $row1['Accession_num'] ?></td>
+                                <td><?php echo $row1['call_num'] ?></td>
                                 <td><input type="hidden" value="<?php echo $row['BookName'] ?>" name="var[]"><?php echo $row['BookName'] ?></td>
-                                <td><?php echo $row['Author'] ?></td>
+                                <td><?php echo $row1['author'] ?></td>
+                                <td><?php echo $row1['source'] ?></td>
+                                <td><?php echo $row1['invoice_num'] ?></td>
+                                <td><?php echo $row1['yearofpub'] ?></td>
+                                <td><?php echo $row1['pages'] ?></td>
+                                <td><?php echo $row1['booksize'] ?></td>
+                                <td><?php echo $row['edition'] ?></td>
+                                <td><?php echo $row1['cost'] ?></td>
                                 <td><?php echo $row['status'] ? "Not Available" : "Available" ?></td>
                             </tr>
                         <?php

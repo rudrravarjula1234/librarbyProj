@@ -44,9 +44,7 @@ if (isset($_POST['login'])) {
 }
 //Checking User Logged or Not
 //Restrict User or Moderator to Access Admin.php page
-if ($_SESSION['user']['username'] && $_SESSION['user']['password']) {
-    header('location:dashboard.php');
-}
+
 if (empty($_SESSION['user'])) {
 
     ?>
@@ -87,5 +85,7 @@ if (empty($_SESSION['user'])) {
     </html>
 <?php
 }
-
+elseif ($_SESSION['user']['username'] && $_SESSION['user']['password']) {
+    header('location:dashboard.php');
+}
 ?>

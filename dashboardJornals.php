@@ -29,15 +29,18 @@
                 <tbody>
                     <?php
                     include 'db.php';
-                    $getbooks = mysqli_query($con, "SELECT *,(SELECT COUNT(BookGuid) from `booksdata` where BookName = `bookdata`.`BookId`) AS total,(SELECT COUNT(BookGuid) from `booksdata` where BookName = `bookdata`.`BookId` && STATUS = false) AS available from `bookdata` where 1");
+                    $getbooks = mysqli_query($con, "SELECT *,(SELECT COUNT(BookGuid) from `booksdata` where BookName = `bookdata`.`BookId`) AS total,(SELECT COUNT(BookGuid) from `booksdata` where BookName = `bookdata`.`BookId` && STATUS = false) AS available from `bookdata` where type = 2");
                     $i = 1;
                     while ($row = mysqli_fetch_assoc($getbooks)) {
+                        $bbid= $row['BookId'];
+                        $adddata = mysqli_query($con,"SELECT * from `joraddinfo` where BookId = '$bbid'");
+                        $row1 = mysqli_fetch_array($adddata,MYSQLI_ASSOC);
                     ?>
                         <tr>
                             <td><?php echo $i++; ?></td>
                             <td><?php echo $row['BookId'] ?></td>
                             <td><?php echo $row['BookName'] ?></td>
-                            <td><?php echo $row['Author'] ?></td>
+                            <td><?php echo $row1['Author'] ?></td>
                             <td><?php echo $row['total'] ?></td>
                             <td><?php echo $row['available'] ?></td>
                             <td>
@@ -82,48 +85,52 @@
                         <input type="text" name="bname" class="form-control" placeholder="Enter S.No of the Book" id="Bname">
                     </div> -->
                     <div class="form-group">
-                        <label for="Author">Date of Pubilished</label>
-                        <input type="text" name="author" class="form-control" placeholder="Enter Date of Pubilished" id="Author">
+                        <label for="name">Journal name</label>
+                        <input type="text" name="name" class="form-control" placeholder="Enter Journal name" id="name" required>
                     </div>
                     <div class="form-group">
-                        <label for="sub">Month of Pubilished</label>
-                        <input type="text" name="subb" class="form-control" placeholder="Enter Month of Pubilished" id="sub">
+                        <label for="dop">Date of Pubilished</label>
+                        <input type="text" name="dop" class="form-control" placeholder="Enter Date of Pubilished" id="dop" required>
                     </div>
                     <div class="form-group">
-                        <label for="Bname">Year of Pubilished</label>
-                        <input type="text" name="bname" class="form-control" placeholder="Enter Year of Pubilished" id="Bname">
+                        <label for="mop">Month of Pubilished</label>
+                        <input type="text" name="mop" class="form-control" placeholder="Enter Month of Pubilished" id="mop" required>
                     </div>
                     <div class="form-group">
-                        <label for="Author">Volume</label>
-                        <input type="text" name="author" class="form-control" placeholder="Enter Volume" id="Author">
+                        <label for="yop">Year of Pubilished</label>
+                        <input type="text" name="yop" class="form-control" placeholder="Enter Year of Pubilished" id="yop" required>
                     </div>
                     <div class="form-group">
-                        <label for="sub">Number</label>
-                        <input type="text" name="subb" class="form-control" placeholder="Enter >Number" id="sub">
+                        <label for="volume">Volume</label>
+                        <input type="text" name="volume" class="form-control" placeholder="Enter Volume" id="volume" required>
                     </div>
                     <div class="form-group">
-                        <label for="Bname">Date of Received</label>
-                        <input type="text" name="bname" class="form-control" placeholder="Enter Date of Received" id="Bname">
+                        <label for="num">Number</label>
+                        <input type="text" name="num" class="form-control" placeholder="Enter >Number" id="num" required>
                     </div>
                     <div class="form-group">
-                        <label for="Author">Order Number & Date</label>
-                        <input type="text" name="author" class="form-control" placeholder="Enter Order Number & Date" id="Author">
+                        <label for="dor">Date of Received</label>
+                        <input type="text" name="dor" class="form-control" placeholder="Enter Date of Received" id="dor">
                     </div>
                     <div class="form-group">
-                        <label for="sub">DD Number & Date</label>
-                        <input type="text" name="subb" class="form-control" placeholder="Enter DD Number & Date" id="sub">
+                        <label for="ond">Order Number & Date</label>
+                        <input type="text" name="ond" class="form-control" placeholder="Enter Order Number & Date" id="ond" required>
                     </div>
                     <div class="form-group">
-                        <label for="sub">Amount</label>
-                        <input type="text" name="subb" class="form-control" placeholder="Enter Amount" id="sub">
+                        <label for="ddnd">DD Number & Date</label>
+                        <input type="text" name="ddnd" class="form-control" placeholder="Enter DD Number & Date" id="ddnd" required>
                     </div>
                     <div class="form-group">
-                        <label for="sub">Librarians's Initials</label>
-                        <input type="text" name="subb" class="form-control" placeholder="Enter Librarians's Initials" id="sub">
+                        <label for="amount">Amount</label>
+                        <input type="text" name="amount" class="form-control" placeholder="Enter Amount" id="amount" required>
                     </div>
                     <div class="form-group">
-                        <label for="sub">Remarks</label>
-                        <input type="text" name="subb" class="form-control" placeholder="Enter Remarks" id="sub">
+                        <label for="lii">Librarians's Initials</label>
+                        <input type="text" name="lii" class="form-control" placeholder="Enter Librarians's Initials" id="lii">
+                    </div>
+                    <div class="form-group">
+                        <label for="remarks">Remarks</label>
+                        <input type="text" name="remarks" class="form-control" placeholder="Enter Remarks" id="remarks">
                     </div>
 
                     <button type="submit" class="btn btn-primary" name="submit">Submit</button>
