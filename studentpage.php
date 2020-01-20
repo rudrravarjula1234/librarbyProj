@@ -19,6 +19,7 @@
                             <th><input type="text" class="form-control" placeholder="Group" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Books Taken" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Sutdent/Faculty" disabled></th>
+                            <th><input type="text" class="form-control" placeholder="fine" disabled></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,6 +35,8 @@
                                 <td><input type="hidden" value="<?php echo $row['stdname'] ?>" name="var[]"><?php echo $row['stdname'] ?></td>
                                 <td><?php echo $row['group'] ?></td>
                                 <td><?php echo $row['Books'] ?></td>
+                                <td><?php echo $row['type'] == 1 ? "Student" : "faculty" ;?></td>
+                                <td><?php echo $row['fine']?></td>
                             </tr>
                         <?php
                         }

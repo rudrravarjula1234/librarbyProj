@@ -7,9 +7,8 @@
 </head>
 
 <body>
-    <form method="GET" action="takebook.php">
+    <form method="GET" action="returnbook.php">
         <input type="text" name="book">
-        <input type="text" name="std">
         <input type="submit" name="submit">
     </form>
 </body>
