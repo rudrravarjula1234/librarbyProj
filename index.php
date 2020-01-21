@@ -84,8 +84,7 @@ if (empty($_SESSION['user'])) {
 
     </html>
 <?php
-}
-elseif ($_SESSION['user']['username'] && $_SESSION['user']['password']) {
+} elseif ($_SESSION['user']['username'] && $_SESSION['user']['password']) {
     header('location:dashboard.php');
 }
 ?>
