@@ -47,6 +47,12 @@ if (empty($_SESSION['user'])) {
             <li class="nav-item">
                 <a class="nav-link" id="jornalsmenu" data-toggle="tab" href="#addjornals">Jornals</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" id="jornalsmenu" data-toggle="tab" href="#addjornals">Books Issue</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="jornalsmenu" data-toggle="tab" href="#addjornals">Books Return</a>
+            </li>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
         </ul>
         <!-- Modal body -->
