@@ -8,8 +8,11 @@
 
 <body>
     <form method="GET" action="returnbook.php">
-        <input type="text" name="book">
-        <input type="submit" name="submit">
+        <div class="form-group">
+            <label for="Book">Scan Student Id</label>
+            <input type="text" name="book" class="form-control" placeholder="Scan Book" id="Book">
+        </div>
+        <input type="submit" class="btn btn-primary" name="submit">
     </form>
 </body>
 

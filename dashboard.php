@@ -48,10 +48,10 @@ if (empty($_SESSION['user'])) {
                 <a class="nav-link" id="jornalsmenu" data-toggle="tab" href="#addjornals">Jornals</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="jornalsmenu" data-toggle="tab" href="#addjornals">Books Issue</a>
+                <a class="nav-link" id="bookTake" data-toggle="tab" href="#takebook">Books Issue</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="jornalsmenu" data-toggle="tab" href="#addjornals">Books Return</a>
+                <a class="nav-link" id="bookReturn" data-toggle="tab" href="#returnbook">Books Return</a>
             </li>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
         </ul>
@@ -74,6 +74,12 @@ if (empty($_SESSION['user'])) {
             </div>
             <div id="addjornals" class="container tab-pane fade">
                 <div id="jornalsgrid"></div>
+            </div>
+            <div id="takebook" class="container tab-pane active">
+                <div id="tbgrid"></div>
+            </div>
+            <div id="returnbook" class="container tab-pane active">
+                <div id="rbgrid"></div>
             </div>
             <div id="menu2" class="container tab-pane fade"><br></div>
         </div>
@@ -101,6 +107,12 @@ if (empty($_SESSION['user'])) {
         });
         $('#jornalsmenu').click(function() {
             jornals_latest();
+        });
+        $('#bookTake').click(function() {
+            btake_latest();
+        });
+        $('#bookReturn').click(function() {
+            breturn_latest();
         });
     });
 
@@ -156,6 +168,26 @@ if (empty($_SESSION['user'])) {
             url: "bookspage.php",
             success: function(result) {
                 $("#bookgrid").html(result);
+                code2 = result;
+
+            }
+        });
+    }
+    function btake_latest() {
+        $.ajax({
+            url: "barcode.php",
+            success: function(result) {
+                $("#tbgrid").html(result);
+                code2 = result;
+
+            }
+        });
+    }
+    function breturn_latest() {
+        $.ajax({
+            url: "barcodereturn.php",
+            success: function(result) {
+                $("#rbgrid").html(result);
                 code2 = result;
 
             }

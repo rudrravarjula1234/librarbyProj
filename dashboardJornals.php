@@ -40,7 +40,7 @@
                             <td><?php echo $i++; ?></td>
                             <td><?php echo $row['BookId'] ?></td>
                             <td><?php echo $row['BookName'] ?></td>
-                            <td><?php echo $row1['Author'] ?></td>
+                            <td><?php echo $row['edition'] ?></td>
                             <td><?php echo $row['total'] ?></td>
                             <td><?php echo $row['available'] ?></td>
                             <td>
@@ -79,7 +79,7 @@
 
             <!-- Modal body -->
             <div class="modal-body">
-                <form method="post" action="insertbooks.php">
+                <form method="post" action="insertJornals.php">
                     <!-- <div class="form-group">
                         <label for="Bname">S.No</label>
                         <input type="text" name="bname" class="form-control" placeholder="Enter S.No of the Book" id="Bname">
