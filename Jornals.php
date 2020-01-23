@@ -13,6 +13,7 @@
                     <thead>
                         <tr class="filters">
                             <th><input type="text" class="form-control" placeholder="Check Box" disabled></th>
+                            <th><input type="text" class="form-control" placeholder="S.No" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Date" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Month" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Year" disabled></th>
@@ -47,6 +48,7 @@
                         ?>
                             <tr>
                                 <td><input type="checkbox" name="barcodes[]" value="<?php echo $row['BookGuid'] ?>" /></td>
+                                <td><?php echo $i++; ?></td>
                                 <td><?php echo $row1['dateofpub'] ?></td>
                                 <td><?php echo $row1['monthofpub'] ?></td>
                                 <td><?php echo $row1['yearofpub'] ?></td>
