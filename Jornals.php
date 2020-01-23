@@ -25,8 +25,9 @@
                             <th><input type="text" class="form-control" placeholder="Amount" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Librarian's Initials" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Status" disabled></th>
+                            <th><input type="text" class="form-control" placeholder="Remarks" disabled></th>
 
-                        <!-- <th><input type="text" class="form-control" placeholder="Copy ID" disabled></th>
+                            <!-- <th><input type="text" class="form-control" placeholder="Copy ID" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Book Id" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Book Name" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Author" disabled></th>
@@ -40,12 +41,11 @@
                         where type = 2");
                         $i = 1;
                         while ($row = mysqli_fetch_assoc($getbooks)) {
-                            $bbid= $row['BookId'];
-                            $adddata = mysqli_query($con,"SELECT * from `joraddinfo` where BookId = '$bbid'");
-                            $row1 = mysqli_fetch_array($adddata,MYSQLI_ASSOC);
+                            $bbid = $row['BookId'];
+                            $adddata = mysqli_query($con, "SELECT * from `joraddinfo` where BookId = '$bbid'");
+                            $row1 = mysqli_fetch_array($adddata, MYSQLI_ASSOC);
                         ?>
                             <tr>
-
                                 <td><input type="checkbox" name="barcodes[]" value="<?php echo $row['BookGuid'] ?>" /></td>
                                 <td><?php echo $row1['dateofpub'] ?></td>
                                 <td><?php echo $row1['monthofpub'] ?></td>
@@ -59,7 +59,7 @@
                                 <td><?php echo $row1['amount'] ?></td>
                                 <td><?php echo $row1['libinitials'] ?></td>
                                 <td><?php echo $row['status'] ? "Not Available" : "Available" ?></td>
-                                
+                                <td><?php echo $row1['remarks'] ?></td>
                             </tr>
                         <?php
                         }
