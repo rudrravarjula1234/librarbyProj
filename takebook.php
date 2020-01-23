@@ -5,12 +5,13 @@
     $bstate = mysqli_query($con,"SELECT `status` from `booksdata` where `booksdata`.`BookGuid` = '$book'");
     $bstate = mysqli_fetch_array($bstate)[0];
     $limit = mysqli_query($con,"SELECT CASE
-    WHEN `type` = 1 THEN `Books` > 3
-    WHEN `type` = 2 THEN `Books` > 4
+    WHEN `type` = 1 THEN `Books` < 3
+    WHEN `type` = 2 THEN `Books` < 4
     END
     FROM `stddataa` WHERE `stdid` = $std") or die(mysqli_error($con));
     $limit = mysqli_fetch_array($limit)[0];
-    
+    echo $bstate != 1;
+    echo $limit;
     if(($book != null || $book != "")&&($std != null || $std != "") && $bstate != 1 && $limit){
         mysqli_autocommit($con,FALSE);
         $status = mysqli_query($con,"UPDATE `booksdata` SET `status` = true , `stdid` = '$std' WHERE `booksdata`.`BookGuid` = '$book' and `booksdata`.`status` = false") ; 
