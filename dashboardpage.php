@@ -22,7 +22,6 @@
                         <th><input type="text" class="form-control" placeholder="Book Name" disabled></th>
                         <th><input type="text" class="form-control" placeholder="Book Author" disabled></th>
                         <th><input type="text" class="form-control" placeholder="Book ID" disabled></th>
-
                         <th><input type="text" class="form-control" placeholder="No of copies" disabled></th>
                         <th><input type="text" class="form-control" placeholder="Available copies" disabled></th>
                         <th><input type="text" class="form-control" placeholder="Add copies" disabled /></th>
@@ -35,9 +34,9 @@
                     $getbooks = mysqli_query($con, "SELECT *,(SELECT COUNT(BookGuid) from `booksdata` where BookName = `bookdata`.`BookId`) AS total,(SELECT COUNT(BookGuid) from `booksdata` where BookName = `bookdata`.`BookId` && STATUS = false) AS available from `bookdata` where type = 1");
                     $i = 1;
                     while ($row = mysqli_fetch_assoc($getbooks)) {
-                        $bbid= $row['BookId'];
-                        $adddata = mysqli_query($con,"SELECT * from `booksaddinfo` where BookId = '$bbid'");
-                        $row1 = mysqli_fetch_array($adddata,MYSQLI_ASSOC);
+                        $bbid = $row['BookId'];
+                        $adddata = mysqli_query($con, "SELECT * from `booksaddinfo` where BookId = '$bbid'");
+                        $row1 = mysqli_fetch_array($adddata, MYSQLI_ASSOC);
                     ?>
                         <tr>
                             <td><?php echo $i++; ?></td>
@@ -72,9 +71,9 @@
         </div>
     </div>
 </div>
-<div class="modal" id="myModal" >
+<div class="modal" id="myModal">
     <div class="modal-dialog">
-        <div class="modal-content" >
+        <div class="modal-content">
 
             <!-- Modal Header -->
             <div class="modal-header">
