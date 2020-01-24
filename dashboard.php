@@ -25,12 +25,30 @@ if (empty($_SESSION['user'])) {
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script type='text/javascript'>
+            $(document).ready(function() {
+                $('#myForm input').keydown(function(e) {
+                    if (e.keyCode == 13) {
+
+                        if ($(':input:eq(' + ($(':input').index(this) + 1) + ')').attr('type') == 'submit') { // check for submit button and submit form on enter press
+                            return true;
+                        }
+
+                        $(':input:eq(' + ($(':input').index(this) + 1) + ')').focus();
+
+                        return false;
+                    }
+
+                });
+            });
+        </script>
     </head>
 
     <body>
         <!-- Modal Header -->
 
-        <ul class="nav nav-tabs modal-header">
+        <ul class="nav nav-tabs modal-header" id="myForm">
 
             <li class="nav-item">
                 <a class="nav-link active" id="mainmenu" data-toggle="tab" href="#dashboard">Dashboard Books</a>
@@ -173,6 +191,7 @@ if (empty($_SESSION['user'])) {
             }
         });
     }
+
     function btake_latest() {
         $.ajax({
             url: "barcode.php",
@@ -183,6 +202,7 @@ if (empty($_SESSION['user'])) {
             }
         });
     }
+
     function breturn_latest() {
         $.ajax({
             url: "barcodereturn.php",

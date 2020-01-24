@@ -20,7 +20,8 @@ if (($book != null || $book != "") && ($std != null || $std != "") && $bstate !=
     if ($status && $tran && $std) {
         mysqli_commit($con);
         mysqli_autocommit($con, TRUE);
-        echo 1;
+        // echo 1;
+        header('location:dashboard.php');
     } else {
         mysqli_rollback($con);
         mysqli_autocommit($con, TRUE);

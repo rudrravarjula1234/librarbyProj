@@ -30,8 +30,8 @@
         $c = $_POST['var'];
         if (isset($_POST['gen'])) {
             foreach ($a as $key => $value) {
-                echo "<p class='inline'><span ><b>IDEAL INSTITUTE OF TECHNOLOGY</b></span>" . bar128(stripcslashes($value)) . "</p>&nbsp&nbsp&nbsp&nbsp
-                <p class='inline'><span ><b>IDEAL INSTITUTE OF TECHNOLOGY</b></span>" . bar128(stripcslashes($value)) . "</p>&nbsp&nbsp&nbsp&nbsp";
+                echo "<p class='inline'><span ><font size=0.4px><b>IDEAL INSTITUTE OF TECHNOLOGY</b></font></span>" . bar128(stripcslashes($value)) . "</p>&nbsp&nbsp&nbsp&nbsp
+                <p class='inline'><span ><font size=0.4px><b>IDEAL INSTITUTE OF TECHNOLOGY</b></font></span>" . bar128(stripcslashes($value)) . "</p><b>&nbsp&nbsp&nbsp&nbsp</b>";
             }
         }
         if (isset($_POST['delete'])) {
