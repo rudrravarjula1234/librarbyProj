@@ -10,8 +10,8 @@ $limit = mysqli_query($con, "SELECT CASE
     END
     FROM `stddataa` WHERE `stdid` = '$std'") or die(mysqli_error($con));
 $limit = mysqli_fetch_array($limit)[0];
-echo $bstate != 1;
-echo $limit;
+// echo $bstate != 1;
+// echo $limit;
 if (($book != null || $book != "") && ($std != null || $std != "") && $bstate != 1 && $limit) {
     mysqli_autocommit($con, FALSE);
     $status = mysqli_query($con, "UPDATE `booksdata` SET `status` = true , `stdid` = '$std' WHERE `booksdata`.`BookGuid` = '$book' and `booksdata`.`status` = false");
@@ -21,12 +21,13 @@ if (($book != null || $book != "") && ($std != null || $std != "") && $bstate !=
         mysqli_commit($con);
         mysqli_autocommit($con, TRUE);
         // echo 1;
-        header('location:dashboard.php');
+        header('location:issuesuces.php');
     } else {
         mysqli_rollback($con);
         mysqli_autocommit($con, TRUE);
         echo "transaction failed";
     }
 } else {
-    echo "invalid data";
+    echo "Limit exceeded";
+    header('location:limitover.php');
 }

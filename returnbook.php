@@ -20,7 +20,7 @@ if (($book != null || $book != "") && ($std != null || $std != "")) {
         mysqli_commit($con);
         mysqli_autocommit($con, TRUE);
         // echo 1;
-        header('location:dashboard.php');
+        header('location:returnsucess.php');
     } else {
         mysqli_rollback($con);
         mysqli_autocommit($con, TRUE);

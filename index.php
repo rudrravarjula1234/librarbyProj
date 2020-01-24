@@ -24,7 +24,7 @@ if (isset($_POST['login'])) {
             );
 ?>
             <script>
-                alert("Login Sussfull");
+                alert("Login Successfull");
             </script>
             <script>
                 window.location.href = "Add_student.php";
