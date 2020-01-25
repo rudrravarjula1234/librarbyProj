@@ -38,13 +38,18 @@
         include "db.php";
         include 'barCodelib.php';
         $bid = $_POST['bid'];
+        $acid = $_POST['ac_num'];
         $copies = $_POST['copy'];
         $bookname = $_POST['bname'];
-        $uid = uniqid();
+        $count_cp = mysqli_query($con,"SELECT COUNT(`BookName`) FROM `booksdata` WHERE BookName = $bid GROUP BY BookName");
+        $count_cp = mysqli_fetch_array($count_cp);
+        $copiesAp = $count_cp[0];
         $array = array();
+        echo $copiesAp;
         while ($copies > 0) {
-            $copyid = $bid . $uid . $copies;
+            $copyid = $acid . $copiesAp;
             $copies--;
+            $copiesAp++;
             $qu = mysqli_query($con, "INSERT INTO `booksdata` (`BookGuid`,`BookName`) values('$copyid','$bid')") or die(mysqli_error($con));
             if ($qu) {
                 array_push($array, $copyid);
