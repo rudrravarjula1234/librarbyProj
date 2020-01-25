@@ -32,9 +32,9 @@
                     $getbooks = mysqli_query($con, "SELECT *,(SELECT COUNT(BookGuid) from `booksdata` where BookName = `bookdata`.`BookId`) AS total,(SELECT COUNT(BookGuid) from `booksdata` where BookName = `bookdata`.`BookId` && STATUS = false) AS available from `bookdata` where type = 2");
                     $i = 1;
                     while ($row = mysqli_fetch_assoc($getbooks)) {
-                        $bbid= $row['BookId'];
-                        $adddata = mysqli_query($con,"SELECT * from `joraddinfo` where BookId = '$bbid'");
-                        $row1 = mysqli_fetch_array($adddata,MYSQLI_ASSOC);
+                        $bbid = $row['BookId'];
+                        $adddata = mysqli_query($con, "SELECT * from `joraddinfo` where BookId = '$bbid'");
+                        $row1 = mysqli_fetch_array($adddata, MYSQLI_ASSOC);
                     ?>
                         <tr>
                             <td><?php echo $i++; ?></td>
@@ -46,7 +46,7 @@
                             <td>
                                 <form method="post" id="copies" action="addcopies.php" target="_blank">
                                     <input type="hidden" name="bid" value="<?php echo $row['BookId'] ?>">
-                                    
+
                                     <input type="hidden" name="bname" value="<?php echo $row['BookName'] ?>">
                                     <input type="number" class="form-control copyy" name="copy">
                                     <input type="submit" value="Add" name="add" class="btn addd" style="margin-left:5px" disabled>

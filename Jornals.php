@@ -1,3 +1,16 @@
+<head>
+    <script type="text/javascript">
+        function stopRKey(evt) {
+            var evt = (evt) ? evt : ((event) ? event : null);
+            var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
+            if ((evt.keyCode == 13) && (node.type == "text")) {
+                return false;
+            }
+        }
+
+        document.onkeypress = stopRKey;
+    </script>
+</head>
 <div class="container">
     <div class="row">
         <div class="panel panel-primary filterable">
@@ -20,13 +33,14 @@
                             <th><input type="text" class="form-control" placeholder="Name" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Volume" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Number" disabled></th>
-                            <th><input type="text" class="form-control" placeholder="Date of Receive" disabled></th>
-                            <th><input type="text" class="form-control" placeholder="Order Number & Date" disabled></th>
-                            <th><input type="text" class="form-control" placeholder="DD Number & Date" disabled></th>
+                            <th><input type="text" class="form-control" placeholder="Date_of_Receive" disabled></th>
+                            <th><input type="text" class="form-control" placeholder="Order_Number_&_Date" disabled></th>
+                            <th><input type="text" class="form-control" placeholder="DD_Number_&_Date" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Amount" disabled></th>
-                            <th><input type="text" class="form-control" placeholder="Librarian's Initials" disabled></th>
+                            <th><input type="text" class="form-control" placeholder="Librarian's_Initials" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Status" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Remarks" disabled></th>
+                            <th><input type="text" class="form-control" placeholder="Barcode" disabled></th>
 
                             <!-- <th><input type="text" class="form-control" placeholder="Copy ID" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Book Id" disabled></th>

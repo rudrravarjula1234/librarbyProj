@@ -1,3 +1,16 @@
+<head>
+    <script type="text/javascript">
+        function stopRKey(evt) {
+            var evt = (evt) ? evt : ((event) ? event : null);
+            var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
+            if ((evt.keyCode == 13) && (node.type == "text")) {
+                return false;
+            }
+        }
+
+        document.onkeypress = stopRKey;
+    </script>
+</head>
 <div class="container">
     <div class="row">
         <div class="panel panel-primary filterable">
@@ -35,8 +48,8 @@
                                 <td><input type="hidden" value="<?php echo $row['stdname'] ?>" name="var[]"><?php echo $row['stdname'] ?></td>
                                 <td><?php echo $row['group'] ?></td>
                                 <td><?php echo $row['Books'] ?></td>
-                                <td><?php echo $row['type'] == 1 ? "Student" : "faculty" ;?></td>
-                                <td><?php echo $row['fine']?></td>
+                                <td><?php echo $row['type'] == 1 ? "Student" : "faculty"; ?></td>
+                                <td><?php echo $row['fine'] ?></td>
                             </tr>
                         <?php
                         }
