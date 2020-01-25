@@ -41,15 +41,11 @@
         $acid = $_POST['ac_num'];
         $copies = $_POST['copy'];
         $bookname = $_POST['bname'];
-        $count_cp = mysqli_query($con,"SELECT COUNT(`BookName`) FROM `booksdata` WHERE BookName = $bid GROUP BY BookName");
-        $count_cp = mysqli_fetch_array($count_cp);
-        $copiesAp = $count_cp[0];
+        $uid = str_split( uniqid(true), 9)[1];
         $array = array();
-        echo $copiesAp;
         while ($copies > 0) {
-            $copyid = $acid . $copiesAp;
+            $copyid = $bid . $uid . $copies;
             $copies--;
-            $copiesAp++;
             $qu = mysqli_query($con, "INSERT INTO `booksdata` (`BookGuid`,`BookName`) values('$copyid','$bid')") or die(mysqli_error($con));
             if ($qu) {
                 array_push($array, $copyid);

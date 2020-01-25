@@ -46,6 +46,7 @@
                             <td>
                                 <form method="post" id="copies" action="addcopies.php" target="_blank">
                                     <input type="hidden" name="bid" value="<?php echo $row['BookId'] ?>">
+                                    
                                     <input type="hidden" name="bname" value="<?php echo $row['BookName'] ?>">
                                     <input type="number" class="form-control copyy" name="copy">
                                     <input type="submit" value="Add" name="add" class="btn addd" style="margin-left:5px" disabled>
