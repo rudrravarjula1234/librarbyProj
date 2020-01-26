@@ -9,7 +9,7 @@
                     <a class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span>
                         Filter</a>
                 </div>
-                <table class="table">
+                <table class="table" style="overflow-x:auto">
                     <thead>
                         <tr class="filters">
                             <th><input type="text" class="form-control" placeholder="Check Box" disabled></th>
@@ -29,7 +29,7 @@
                             <th><input type="text" class="form-control" placeholder="Cost" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Status" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Remarks" disabled></th>
-
+                            <th><input type="text" class="form-control" placeholder="CopyId" disabled></th>
 
                             <!-- <th><input type="text" class="form-control" placeholder="#" disabled></th>
                         <th><input type="text" class="form-control" placeholder="Copy ID" disabled></th>
@@ -68,6 +68,7 @@
                                 <td><?php echo $row1['cost'] ?></td>
                                 <td><?php echo $row['status'] ? "Not Available" : "Available" ?></td>
                                 <td><?php echo $row1['remarks'] ?></td>
+                                <td><?php echo $row['BookGuid'] ?></td>
                             </tr>
                         <?php
                         }

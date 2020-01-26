@@ -36,7 +36,7 @@
                                 <td><?php echo $row['group'] ?></td>
                                 <td><?php echo $row['Books'] ?></td>
                                 <td><?php echo $row['type'] == 1 ? "Student" : "faculty" ;?></td>
-                                <td><?php echo $row['fine']?></td>
+                                <td><?php echo $row['fine']+$row['running_fine']?></td>
                             </tr>
                         <?php
                         }

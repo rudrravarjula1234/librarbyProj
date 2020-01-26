@@ -29,6 +29,8 @@
             margin-right: 4mm;
             border: 1px solid #4CAF50;
         }
+        
+
     </style>
 </head>
 
@@ -41,8 +43,8 @@
         $c = $_POST['var'];
         if (isset($_POST['gen'])) {
             foreach ($a as $key => $value) {
-                echo "<p class='inline'><span ><font size = 1.5px><b>Ideal Institute of Technology</b></font></span>" . bar128(stripcslashes($value)) . "</p>&nbsp&nbsp&nbsp&nbsp";
-                echo "<p class='inline'><span ><font size = 1.5px><b>Ideal Institute of Technology</b></font></span>" . bar128(stripcslashes($value)) . "</p>&nbsp&nbsp&nbsp&nbsp";
+                echo "<p class='inline align'><span ><font size = 1.5px><b>Ideal Institute of Technology</b></font></span>" . bar128(stripcslashes($value)) . "</p>&nbsp&nbsp&nbsp&nbsp";
+                echo "<p class='inline align'><span ><font size = 1.5px><b>Ideal Institute of Technology</b></font></span>" . bar128(stripcslashes($value)) . "</p>&nbsp&nbsp&nbsp&nbsp";
             }
         }
         if (isset($_POST['delete'])) {
