@@ -25,8 +25,8 @@
         p {
             padding: 4px;
             margin-top: 0mm;
-            margin-left: -1mm;
-            margin-right: 4mm;
+            margin-left: 0mm;
+            margin-right: 5.5mm;
             border: 1px solid #4CAF50;
         }
     </style>
@@ -41,7 +41,7 @@
         $acid = $_POST['ac_num'];
         $copies = $_POST['copy'];
         $bookname = $_POST['bname'];
-        $uid = str_split( uniqid(true), 9)[1];
+        $uid = str_split(uniqid(true), 9)[1];
         $array = array();
         while ($copies > 0) {
             $copyid = $bid . $uid . $copies;

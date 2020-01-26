@@ -1,3 +1,16 @@
+<head>
+    <script type="text/javascript">
+        function stopRKey(evt) {
+            var evt = (evt) ? evt : ((event) ? event : null);
+            var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
+            if ((evt.keyCode == 13) && (node.type == "text")) {
+                return false;
+            }
+        }
+
+        document.onkeypress = stopRKey;
+    </script>
+</head>
 <div class="container">
     <div class="row">
         <div class="panel panel-primary filterable">
@@ -12,31 +25,24 @@
                 <table class="table" style="overflow-x:auto">
                     <thead>
                         <tr class="filters">
-                            <th><input type="text" class="form-control" placeholder="Check Box" disabled></th>
+                            <th><input type="text" class="form-control" placeholder="Check_Box" disabled></th>
                             <th><input type="text" class="form-control" placeholder="S.No" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Date" disabled></th>
-                            <th><input type="text" class="form-control" placeholder="Acession Number" disabled></th>
-                            <th><input type="text" class="form-control" placeholder="Call Number" disabled></th>
-                            <th><input type="text" class="form-control" placeholder="Title of the Book" disabled></th>
+                            <th><input type="text" class="form-control" placeholder="Acession_Number" disabled></th>
+                            <th><input type="text" class="form-control" placeholder="Call_Number" disabled></th>
+                            <th><input type="text" class="form-control" placeholder="Title_of_the_Book" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Author" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Source" disabled></th>
-                            <th><input type="text" class="form-control" placeholder="Invoice Number & Date" disabled></th>
-                            <th><input type="text" class="form-control" placeholder="Publisher & Place of Publication" disabled></th>
-                            <th><input type="text" class="form-control" placeholder="Year of Publication" disabled></th>
+                            <th><input type="text" class="form-control" placeholder="Invoice_Number_&_Date" disabled></th>
+                            <th><input type="text" class="form-control" placeholder="Publisher_&_Place_of_Publication" disabled></th>
+                            <th><input type="text" class="form-control" placeholder="Year_of_Publication" disabled></th>
                             <th><input type="text" class="form-control" placeholder="No.Pages" disabled></th>
-                            <th><input type="text" class="form-control" placeholder="Book Size" disabled></th>
+                            <th><input type="text" class="form-control" placeholder="Book_Size" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Edition" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Cost" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Status" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Remarks" disabled></th>
-                            <th><input type="text" class="form-control" placeholder="CopyId" disabled></th>
-
-                            <!-- <th><input type="text" class="form-control" placeholder="#" disabled></th>
-                        <th><input type="text" class="form-control" placeholder="Copy ID" disabled></th>
-                        <th><input type="text" class="form-control" placeholder="Book Id" disabled></th>
-                        <th><input type="text" class="form-control" placeholder="Book Name" disabled></th>
-                        <th><input type="text" class="form-control" placeholder="Author" disabled></th>
-                        <th><input type="text" class="form-control" placeholder="status" disabled></th> -->
+                            <th><input type="text" class="form-control" placeholder="Barcode" disabled></th>
                         </tr>
                     </thead>
                     <tbody>

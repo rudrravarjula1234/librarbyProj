@@ -42,4 +42,5 @@ if (($book != null || $book != "") && ($std != null || $std != "")) {
     }
 } else {
     echo "invalied data";
+    header('location:rutrnInvaled.php');
 }

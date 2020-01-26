@@ -26,7 +26,7 @@
             padding: 4px;
             margin-top: 0mm;
             margin-left: -1mm;
-            margin-right: 4mm;
+            margin-right: 6mm;
             border: 1px solid #4CAF50;
         }
         

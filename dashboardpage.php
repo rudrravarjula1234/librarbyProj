@@ -1,9 +1,29 @@
-<style>
-    #copies {
-        display: flex;
-        flex-direction: row;
-    }
-</style>
+<head>
+    <script type='text/javascript'>
+        $(document).ready(function() {
+            $('#myForm input').keydown(function(e) {
+                if (e.keyCode == 13) {
+
+                    if ($(':input:eq(' + ($(':input').index(this) + 1) + ')').attr('type') == 'submit') { // check for submit button and submit form on enter press
+                        return true;
+                    }
+
+                    $(':input:eq(' + ($(':input').index(this) + 1) + ')').focus();
+
+                    return false;
+                }
+
+            });
+        });
+    </script>
+    <style>
+        #copies {
+            display: flex;
+            flex-direction: row;
+        }
+    </style>
+</head>
+
 <div class="container">
     <div class="row">
         <div class="panel panel-primary filterable">
@@ -15,7 +35,7 @@
             </div>
             <table class="table">
                 <thead>
-                    <tr class="filters">
+                    <tr class="filters" id="myForm">
                         <th><input type="text" class="form-control" placeholder="S.No" disabled></th>
                         <th><input type="text" class="form-control" placeholder="Accession Number" disabled></th>
                         <th><input type="text" class="form-control" placeholder="Call Number" disabled></th>

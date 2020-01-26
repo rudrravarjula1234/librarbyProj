@@ -28,6 +28,5 @@
         echo $days;
         echo "</br>";
     }
-    
-    
+    header('location:dashboard.php');
 ?>

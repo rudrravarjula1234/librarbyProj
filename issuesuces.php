@@ -15,8 +15,8 @@
     </script>
 </head>
 
-<body onLoad="setTimeout('delayedRedirect()', 2000)">
-    <h1>Issued Successfully</h1>
+<body onLoad="setTimeout('delayedRedirect()', 1)">
+    <!-- <h1>Issued Successfully</h1> -->
 </body>
 
 </html>
