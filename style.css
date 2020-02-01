@@ -24,3 +24,7 @@
 .filterable .filters input[disabled]:-ms-input-placeholder {
   color: #333;
 }
+.container-fluid>div{
+  overflow: auto;
+  width: 100%;
+}

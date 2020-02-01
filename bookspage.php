@@ -26,7 +26,6 @@
                     <thead>
                         <tr class="filters">
                             <th><input type="text" class="form-control" placeholder="Check_Box" disabled></th>
-                            <th><input type="text" class="form-control" placeholder="S.No" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Date" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Acession_Number" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Call_Number" disabled></th>
@@ -58,9 +57,8 @@
                         ?>
                             <tr>
                                 <td><input type="checkbox" name="barcodes[]" value="<?php echo $row['BookGuid'] ?>" /></td>
-                                <td><?php echo $i++; ?></td>
                                 <td><?php echo $row1['date'] ?></td>
-                                <td><?php echo $row1['Accession_num'] ?></td>
+                                <td><?php echo $row['sno'] ?></td>
                                 <td><?php echo $row1['call_num'] ?></td>
                                 <td><input type="hidden" value="<?php echo $row['BookName'] ?>" name="var[]"><?php echo $row['BookName'] ?></td>
                                 <td><?php echo $row1['author'] ?></td>

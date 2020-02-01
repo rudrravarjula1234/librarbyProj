@@ -78,25 +78,25 @@ if (empty($_SESSION['user'])) {
         <div class="tab-content">
             <a class="btn" href="logout.php">Logout</a>
             <a class="btn" href="finegen.php" target="_blank">Generate Fines</a>
-            <div id="dashboard" class="container tab-pane active">
+            <div id="dashboard" class="container-fluid tab-pane active">
                 <div id="dbgrid"></div>
             </div>
-            <div id="dashboardjrnls" class="container tab-pane active">
+            <div id="dashboardjrnls" class="container-fluid tab-pane active">
                 <div id="dbjgrid"></div>
             </div>
-            <div id="addstd" class="container tab-pane fade">
+            <div id="addstd" class="container-fluid tab-pane fade">
                 <div id="stdgrid"></div>
             </div>
-            <div id="addbook" class="container tab-pane fade">
+            <div id="addbook" class="container-fluid tab-pane fade">
                 <div id="bookgrid"></div>
             </div>
-            <div id="addjornals" class="container tab-pane fade">
+            <div id="addjornals" class="container-fluid tab-pane fade">
                 <div id="jornalsgrid"></div>
             </div>
-            <div id="takebook" class="container tab-pane active">
+            <div id="takebook" class="container-fluid tab-pane active">
                 <div id="tbgrid"></div>
             </div>
-            <div id="returnbook" class="container tab-pane active">
+            <div id="returnbook" class="container-fluid tab-pane active">
                 <div id="rbgrid"></div>
             </div>
             <div id="menu2" class="container tab-pane fade"><br></div>
