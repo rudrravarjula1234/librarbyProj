@@ -37,7 +37,7 @@
                 <thead>
                     <tr class="filters" id="myForm">
                         <th><input type="text" class="form-control" placeholder="S.No" disabled></th>
-                        <th><input type="text" class="form-control" placeholder="Accession Number" disabled></th>
+                        <!-- <th><input type="text" class="form-control" placeholder="Accession Number" disabled></th> -->
                         <th><input type="text" class="form-control" placeholder="Call Number" disabled></th>
                         <th><input type="text" class="form-control" placeholder="Book Name" disabled></th>
                         <th><input type="text" class="form-control" placeholder="Book Author" disabled></th>
@@ -60,7 +60,7 @@
                     ?>
                         <tr>
                             <td><?php echo $i++; ?></td>
-                            <td><?php echo $row1['Accession_num'] ?></td>
+                            <!-- <td><?php echo $row1['Accession_num'] ?></td> -->
                             <td><?php echo $row1['call_num'] ?></td>
                             <td><?php echo $row['BookName'] ?></td>
                             <td><?php echo $row1['author'] ?></td>
@@ -109,10 +109,10 @@
                         <label for="date">Date</label>
                         <input type="text" name="date" class="form-control" placeholder="Enter Date" id="date" required>
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="acnum">Accession Number</label>
                         <input type="text" name="acnum" class="form-control" placeholder="Enter Accession Number" id="acnum" required>
-                    </div>
+                    </div> -->
                     <div class="form-group">
                         <label for="cnum">Call Number</label>
                         <input type="text" name="cnum" class="form-control" placeholder="Enter Call Number" id="cnum" required>
