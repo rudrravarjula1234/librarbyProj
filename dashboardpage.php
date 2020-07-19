@@ -33,7 +33,7 @@
                 <a class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span>
                     Filter</a>
             </div>
-            <table class="table">
+            <table id="example" class="table display">
                 <thead>
                     <tr class="filters" id="myForm">
                         <th><input type="text" class="form-control" placeholder="S.No" disabled></th>
@@ -52,8 +52,17 @@
                     <?php
                     include 'db.php';
                     $getbooks = mysqli_query($con, "SELECT *,(SELECT COUNT(BookGuid) from `booksdata` where BookName = `bookdata`.`BookId`) AS total,(SELECT COUNT(BookGuid) from `booksdata` where BookName = `bookdata`.`BookId` && STATUS = false) AS available from `bookdata` where type = 1");
+                    $cou = mysqli_query($con, "SELECT COUNT(*) from `bookdata` where type = 1");
+                    $cou = mysqli_fetch_array($cou)[0];
+                    $dat = array();
+                    while($row = mysqli_fetch_assoc($getbooks)){
+                        $dat[] = $row; 
+                    }
+                    if($cou > 3000){
+                        set_time_limit(180);
+                    }
                     $i = 1;
-                    while ($row = mysqli_fetch_assoc($getbooks)) {
+                    foreach ($dat as $key => $row) {
                         $bbid = $row['BookId'];
                         $adddata = mysqli_query($con, "SELECT * from `booksaddinfo` where BookId = '$bbid'");
                         $row1 = mysqli_fetch_array($adddata, MYSQLI_ASSOC);
@@ -238,5 +247,28 @@
                     .find('.filters th').length + '">No result found</td></tr>'));
             }
         });
+        // $('#example tfoot th').each(function() {
+        //     var title = $(this).text();
+        //     $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+        // });
+
+        // DataTable
+        var table = $('#example').DataTable({
+            initComplete: function() {
+                // Apply the search
+                this.api().columns().every(function() {
+                    var that = this;
+
+                    // $('input', this.footer()).on('keyup change clear', function() {
+                    //     if (that.search() !== this.value) {
+                    //         that
+                    //             .search(this.value)
+                    //             .draw();
+                    //     }
+                    // });
+                });
+            }
+        });
+
     });
 </script>

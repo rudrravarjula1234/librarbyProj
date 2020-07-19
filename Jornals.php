@@ -22,7 +22,7 @@
                     <a class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span>
                         Filter</a>
                 </div>
-                <table class="table" style="overflow-x:auto">
+                <table id="example5" class="table display" style="overflow-x:auto">
                     <thead>
                         <tr class="filters">
                             <th><input type="text" class="form-control" placeholder="Check Box" disabled></th>
@@ -55,6 +55,12 @@
                         $getbooks = mysqli_query($con, "SELECT * FROM `booksdata` AS t1 JOIN `bookdata` AS t2 ON t1.BookName = t2.BookId
                         where type = 2");
                         $i = 1;
+                        $cou = mysqli_query($con, "SELECT COUNT(*) from `booksdata` AS t1 JOIN `bookdata` AS t2 ON t1.BookName = t2.BookId
+                        where type = 2");
+                        $cou = mysqli_fetch_array($cou)[0];
+                        if ($cou > 3000) {
+                            set_time_limit(120);
+                        }
                         while ($row = mysqli_fetch_assoc($getbooks)) {
                             $bbid = $row['BookId'];
                             $adddata = mysqli_query($con, "SELECT * from `joraddinfo` where BookId = '$bbid'");
@@ -173,6 +179,22 @@
             if ($filteredRows.length === $rows.length) {
                 $table.find('tbody').prepend($('<tr class="no-result text-center"><td colspan="' + $table
                     .find('.filters th').length + '">No result found</td></tr>'));
+            }
+        });
+        var table = $('#example5').DataTable({
+            initComplete: function() {
+                // Apply the search
+                this.api().columns().every(function() {
+                    var that = this;
+
+                    // $('input', this.footer()).on('keyup change clear', function() {
+                    //     if (that.search() !== this.value) {
+                    //         that
+                    //             .search(this.value)
+                    //             .draw();
+                    //     }
+                    // });
+                });
             }
         });
     });

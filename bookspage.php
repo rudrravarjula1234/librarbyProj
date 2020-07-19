@@ -22,7 +22,7 @@
                     <a class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span>
                         Filter</a>
                 </div>
-                <table class="table" style="overflow-x:auto">
+                <table id="example1" class="table display" style="overflow-x:auto">
                     <thead>
                         <tr class="filters">
                             <th><input type="text" class="form-control" placeholder="Check_Box" disabled></th>
@@ -49,6 +49,12 @@
                         include 'db.php';
                         $getbooks = mysqli_query($con, "SELECT * FROM `booksdata` AS t1 JOIN `bookdata` AS t2 ON t1.BookName = t2.BookId
                         where t2.type = 1");
+                        $cou = mysqli_query($con, "SELECT COUNT(*) from `booksdata` AS t1 JOIN `bookdata` AS t2 ON t1.BookName = t2.BookId
+                        where t2.type = 1");
+                        $cou = mysqli_fetch_array($cou)[0];
+                        if($cou > 3000){
+                            set_time_limit(120);
+                        }
                         $i = 1;
                         while ($row = mysqli_fetch_assoc($getbooks)) {
                             $bbid = $row['BookId'];
@@ -171,5 +177,23 @@
                     .find('.filters th').length + '">No result found</td></tr>'));
             }
         });
+
+        var table = $('#example1').DataTable({
+            initComplete: function() {
+                // Apply the search
+                this.api().columns().every(function() {
+                    var that = this;
+
+                    // $('input', this.footer()).on('keyup change clear', function() {
+                    //     if (that.search() !== this.value) {
+                    //         that
+                    //             .search(this.value)
+                    //             .draw();
+                    //     }
+                    // });
+                });
+            }
+        });
+
     });
 </script>

@@ -21,11 +21,13 @@ if (empty($_SESSION['user'])) {
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="style.css" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
         <script type='text/javascript'>
             $(document).ready(function() {
                 $('#myForm input').keydown(function(e) {
@@ -132,18 +134,31 @@ if (empty($_SESSION['user'])) {
         $('#bookReturn').click(function() {
             breturn_latest();
         });
+
     });
 
+    function clerotherdivs(a) {
+        var array = ["#dbgrid", "#jornalsgrid", "#dbjgrid", "#stdgrid", "#bookgrid", "#tbgrid", "#rbgrid"];
+        array.forEach(element => {
+            if (element != a) {
+                $(element).empty();
+            }
+        });
+    }
     var code, code2, status, status1;
     //vvar x = setInterval(check_change, 1000);
 
     function main_latest() {
         $.ajax({
             url: "dashboardpage.php",
+            beforeSend: function() {
+                $('#dbgrid').html('<h1 class="loader"></h1>');
+            },
+            
             success: function(result) {
+                clerotherdivs("#dbgrid");
                 $("#dbgrid").html(result);
                 code2 = result;
-
             }
         });
     }
@@ -152,9 +167,9 @@ if (empty($_SESSION['user'])) {
         $.ajax({
             url: "Jornals.php",
             success: function(result) {
+                clerotherdivs("#jornalsgrid");
                 $("#jornalsgrid").html(result);
                 code2 = result;
-
             }
         });
     }
@@ -163,9 +178,9 @@ if (empty($_SESSION['user'])) {
         $.ajax({
             url: "dashboardJornals.php",
             success: function(result) {
+                clerotherdivs("#dbjgrid");
                 $("#dbjgrid").html(result);
                 code2 = result;
-
             }
         });
     }
@@ -174,9 +189,9 @@ if (empty($_SESSION['user'])) {
         $.ajax({
             url: "studentpage.php",
             success: function(result) {
+                clerotherdivs("#stdgrid");
                 $("#stdgrid").html(result);
                 code2 = result;
-
             }
         });
     }
@@ -185,9 +200,9 @@ if (empty($_SESSION['user'])) {
         $.ajax({
             url: "bookspage.php",
             success: function(result) {
+                clerotherdivs("#bookgrid");
                 $("#bookgrid").html(result);
                 code2 = result;
-
             }
         });
     }
@@ -196,9 +211,9 @@ if (empty($_SESSION['user'])) {
         $.ajax({
             url: "barcode.php",
             success: function(result) {
+                clerotherdivs("#tbgrid");
                 $("#tbgrid").html(result);
                 code2 = result;
-
             }
         });
     }
@@ -207,9 +222,9 @@ if (empty($_SESSION['user'])) {
         $.ajax({
             url: "barcodereturn.php",
             success: function(result) {
+                clerotherdivs("#rbgrid");
                 $("#rbgrid").html(result);
                 code2 = result;
-
             }
         });
     }
