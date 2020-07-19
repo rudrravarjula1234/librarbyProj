@@ -27,10 +27,18 @@
                         <tr class="filters">
                             <th><input type="text" class="form-control" placeholder="Check Box" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Accion number" disabled></th>
+                            <th><input type="text" class="form-control" placeholder="Name" disabled></th>
+                            <th><input type="text" class="form-control" placeholder="Peridicity" disabled></th>
+                            <th><input type="text" class="form-control" placeholder="Publisher" disabled></th>
+                            <th><input type="text" class="form-control" placeholder="Subscription No." disabled></th>
+                            <th><input type="text" class="form-control" placeholder="And Date" disabled></th>
+                            <th><input type="text" class="form-control" placeholder="Foundation Date" disabled></th>
+                            <th><input type="text" class="form-control" placeholder="Sub per Annum" disabled></th>
+                            <th><input type="text" class="form-control" placeholder="From - TO" disabled></th>
+                            <th><input type="text" class="form-control" placeholder="Issue's per Volume" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Date" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Month" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Year" disabled></th>
-                            <th><input type="text" class="form-control" placeholder="Name" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Volume" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Number" disabled></th>
                             <th><input type="text" class="form-control" placeholder="Date_of_Receive" disabled></th>
@@ -69,10 +77,18 @@
                             <tr>
                                 <td><input type="checkbox" name="barcodes[]" value="<?php echo $row['BookGuid'] ?>" /></td>
                                 <td><?php echo $i++; ?></td>
+                                <td><input type="hidden" value="<?php echo $row['BookName'] ?>" name="var[]"><?php echo $row['BookName'] ?></td>
+                                <td><?php echo $row1['PERIOD'] ?></td>
+                                <td><?php echo $row1['PUB'] ?></td>
+                                <td><?php echo $row1['SUBNo'] ?></td>
+                                <td><?php echo $row1['Dt'] ?></td>
+                                <td><?php echo $row1['Fdt'] ?></td>
+                                <td><?php echo $row1['subrupees'] ?></td>
+                                <td><?php echo $row1['fromto'] ?></td>
+                                <td><?php echo $row1['perVol'] ?></td>
                                 <td><?php echo $row1['dateofpub'] ?></td>
                                 <td><?php echo $row1['monthofpub'] ?></td>
                                 <td><?php echo $row1['yearofpub'] ?></td>
-                                <td><input type="hidden" value="<?php echo $row['BookName'] ?>" name="var[]"><?php echo $row['BookName'] ?></td>
                                 <td><?php echo $row['edition'] ?></td>
                                 <td><?php echo $row1['number'] ?></td>
                                 <td><?php echo $row1['dteofrecived'] ?></td>

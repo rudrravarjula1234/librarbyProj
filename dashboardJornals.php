@@ -87,12 +87,45 @@
             <div class="modal-body">
                 <form method="post" action="insertJornals.php">
                     <!-- <div class="form-group">
-                        <label for="Bname">S.No</label>
-                        <input type="text" name="bname" class="form-control" placeholder="Enter S.No of the Book" id="Bname">
+                        <label for="til">Title</label>
+                        <input type="text" name="til" class="form-control" placeholder="Enter Title" id="til">
                     </div> -->
+
                     <div class="form-group">
                         <label for="name">Journal name</label>
                         <input type="text" name="name" class="form-control" placeholder="Enter Journal name" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="preE">Periodicity</label>
+                        <input type="text" name="preE" class="form-control" placeholder="Periodicity" id="preE">
+                    </div>
+                    <div class="form-group">
+                        <label for="pus">Publisher</label>
+                        <input type="text" name="pus" class="form-control" placeholder="Publisher" id="pus" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="SubNo">Subscription Number</label>
+                        <input type="text" name="SubNo" class="form-control" placeholder="Subscription Number" id="SubNo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="adt">And Date</label>
+                        <input type="text" name="adt" class="form-control" placeholder="And Date" id="adt" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="fdt">Foundation Date</label>
+                        <input type="text" name="fdt" class="form-control" placeholder="Foundation Date" id="fdt" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Subanm">Subscription per Annum Rs.</label>
+                        <input type="text" name="Subanm" class="form-control" placeholder="Subscription per Annum Rs." id="Subanm" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="frmto">From - TO</label>
+                        <input type="text" name="frmto" class="form-control" placeholder="From - TO" id="frmto" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pervol">Issue's per Volume</label>
+                        <input type="text" name="pervol" class="form-control" placeholder="Issue's per Volume" id="pervol" required>
                     </div>
                     <div class="form-group">
                         <label for="dop">Date of Pubilished</label>
